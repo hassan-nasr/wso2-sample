@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="queryMore" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="batchSize"/>
+    <sequence>
+        <property
+            expression="get-property('operation','salesforce.serviceUrl')" name="uri.var.salesforce.url"/>
+        <payloadFactory>
+            <format>
+                <soapenv:Envelope
+                    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:partner.soap.sforce.com">
+                    <soapenv:Header>
+                        <urn:QueryOptions>
+                            <urn:batchSize>$1</urn:batchSize>
+                        </urn:QueryOptions>
+                        <urn:SessionHeader>
+                            <urn:sessionId>$2</urn:sessionId>
+                        </urn:SessionHeader>
+                    </soapenv:Header>
+                    <soapenv:Body>
+                        <urn:queryMore>
+                            <urn:queryLocator>$3</urn:queryLocator>
+                        </urn:queryMore>
+                    </soapenv:Body>
+                </soapenv:Envelope>
+            </format>
+            <args>
+                <arg expression="$func:batchSize"/>
+                <arg expression="get-property('operation','salesforce.sessionId')"/>
+                <arg expression="get-property('salesforce.query.queryLocator')"/>
+            </args>
+        </payloadFactory>
+        <property name="SOAPAction" scope="transport" value="urn:partner.soap.sforce.com/Soap/queryMoreRequest"/>
+        <call>
+            <endpoint>
+                <http method="POST" uri-template="{uri.var.salesforce.url}"/>
+            </endpoint>
+        </call>
+        <property expression="//ns:result/ns:done/text()"
+            name="salesforce.query.done" scope="default" type="STRING" xmlns:ns="urn:partner.soap.sforce.com"/>
+        <property expression="//ns:result/ns:queryLocator/text()"
+            name="salesforce.query.queryLocator" scope="default"
+            type="STRING" xmlns:ns="urn:partner.soap.sforce.com"/>
+    </sequence>
+</template>

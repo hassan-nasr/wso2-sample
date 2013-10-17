@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="update" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="allOrNone"/>
+    <parameter name="allowFieldTruncate"/>
+    <parameter name="sobjects"/>
+    <sequence>
+        <class name="org.wso2.carbon.connector.salesforce.SetupCRUDParams"/>
+        <property
+            expression="get-property('operation','salesforce.serviceUrl')" name="uri.var.salesforce.url"/>
+        <payloadFactory>
+            <format>
+                <soapenv:Envelope
+                    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:partner.soap.sforce.com">
+                    <soapenv:Header>
+                        <urn:AllOrNoneHeader>
+                            <urn:allOrNone>$1</urn:allOrNone>
+                        </urn:AllOrNoneHeader>
+                        <urn:AllowFieldTruncationHeader>
+                            <urn:allowFieldTruncation>$2</urn:allowFieldTruncation>
+                        </urn:AllowFieldTruncationHeader>
+                        <urn:SessionHeader>
+                            <urn:sessionId>$3</urn:sessionId>
+                        </urn:SessionHeader>
+                    </soapenv:Header>
+                    <soapenv:Body>
+                        <urn:update/>
+                    </soapenv:Body>
+                </soapenv:Envelope>
+            </format>
+            <args>
+                <arg expression="get-property('salesforce.crud.allOrNone')"/>
+                <arg expression="get-property('salesforce.crud.allowFieldTruncate')"/>
+                <arg expression="get-property('operation','salesforce.sessionId')"/>
+            </args>
+        </payloadFactory>
+        <class name="org.wso2.carbon.connector.salesforce.SetupUpdateSobjects"/>
+        <property name="SOAPAction" scope="transport" value="urn:partner.soap.sforce.com/Soap/updateRequest"/>
+        <call>
+            <endpoint>
+                <http method="POST" uri-template="{uri.var.salesforce.url}"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

@@ -1,0 +1,167 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+    <parent>
+        <groupId>org.wso2.carbon</groupId>
+        <artifactId>product-releases</artifactId>
+        <version>4.2.0-chunk03</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>product-releases-features</artifactId>
+    <packaging>pom</packaging>
+    <name>WSO2 Carbon - Patch releases - features - Aggregator Module</name>
+    <url>http://wso2.org</url>
+
+    <modules>
+
+        <!-- Start SSO hostobject feature -->
+        <module>../../../features/hostobjects/org.wso2.carbon.hostobjects.sso.server.feature/4.2.0</module>
+        <!-- End SSO hostobject feature -->
+
+        <!-- Start of BAM features -->
+        <module>../../../features/bam2</module>
+        <module>../../../features/analytics</module>
+	<module>../../../features/data-bridge/org.wso2.carbon.databridge.datasink.cassandra.server.feature/4.2.0</module>
+        <!-- end of BAM features -->
+
+	<!-- SS features start-->
+        <module>../../../features/cassandra</module>
+        <module>../../../features/cassandra-explorer</module>
+        <module>../../../features/rss-manager</module>
+        <module>../../../features/hadoop</module>
+	<!-- SS features end-->
+
+        <!-- BPS features start-->
+        <module>../../../features/bpel/org.wso2.carbon.bpel.ui.feature/4.2.0</module>
+        <module>../../../features/bpel/org.wso2.carbon.bpel.server.feature/4.2.0</module>
+        <module>../../../features/bpel/org.wso2.carbon.bpel.feature/4.2.0</module>
+        <module>../../../features/bpel/org.wso2.carbon.bpel.bam.publisher.feature/4.2.0</module>
+        <module>../../../features/humantask/org.wso2.carbon.humantask.ui.feature/4.2.1</module>
+        <module>../../../features/humantask/org.wso2.carbon.humantask.server.feature/4.2.1</module>
+        <module>../../../features/humantask/org.wso2.carbon.humantask.feature/4.2.1</module>
+        <module>../../../features/attachment-mgt/org.wso2.carbon.attachment.mgt.server.feature/4.2.1</module>    
+        <module>../../../features/attachment-mgt/org.wso2.carbon.attachment.mgt.feature/4.2.1</module>   	
+        <!-- BPS features end-->
+
+        <!-- application-mgt features start -->
+        <module>../../../features/application-mgt/org.wso2.carbon.application.mgt.bpel.server.feature/4.2.0</module>
+        <module>../../../features/application-mgt/org.wso2.carbon.application.mgt.bpel.ui.feature/4.2.0</module>
+        <module>../../../features/application-mgt/org.wso2.carbon.application.mgt.bpel.feature/4.2.0</module>
+        <module>../../../features/application-mgt/org.wso2.carbon.application.mgt.humantask.server.feature/4.2.0</module>
+        <module>../../../features/application-mgt/org.wso2.carbon.application.mgt.humantask.ui.feature/4.2.0</module>
+        <module>../../../features/application-mgt/org.wso2.carbon.application.mgt.humantask.feature/4.2.0</module>
+        <!-- application-mgt features end-->
+
+        <!-- application-deployers features start-->
+        <module>../../../features/application-deployers/org.wso2.carbon.application.deployer.bpel.feature/4.2.0</module>
+        <module>../../../features/application-deployers/org.wso2.carbon.application.deployer.humantask.feature/4.2.0</module>	
+        <!-- application-deployers features end -->
+
+	<module>../../../features/unified-endpoint</module>
+
+
+
+	<!--Features not released with Chunk-02-->
+	<!-- Uncomment if the needed-->
+
+		<!--module>../../../features/stratos/adc-mgt</module>
+		<module>../../../features/stratos/cartridge-agent</module>
+		<module>../../../features/stratos/cartridge-mgt</module-->
+		<!-- logging-mgt features -->
+		<!--module>../../../features/logging-mgt/org.wso2.carbon.logging.summarizer.feature/4.2.0</module>
+		<module>../../../features/logging-mgt/org.wso2.carbon.logging.summarizer.server.feature/4.2.0</module>
+		<module>../../../features/data-bridge/org.wso2.carbon.databridge.cassandra.feature/4.2.0</module>
+	       	<module>../../../features/gadgets</module-->
+		<!--module>../../../features/transports</module-->
+		<!--module>../../../features/gadgetgen-wizard</module-->
+
+		<!--module>../../../features/gadget-ide</module-->
+		<!--module>../../../features/appfactory</module-->
+		<!--module>../../../features/bam-data-publishers</module-->
+		<!--module>../../../../features/cg</module-->
+		<!--module>../../../features/eventing</module-->
+	      	<!--module>../../../features/registry/people</module>
+		<module>../../../features/registry/processes</module-->
+
+		<!-- application-mgt features -->
+		<!--module>../../../features/application-mgt/org.wso2.carbon.application.mgt.synapse.ui.feature/4.2.0</module>
+		<module>../../../features/application-mgt/org.wso2.carbon.application.mgt.synapse.feature/4.2.0</module-->
+
+
+		<!-- stratos features -->
+		<!--module>../../../features/stratos/tenant-mgt</module>
+		<module>../../../features/stratos/gapp</module>
+		<module>../../../features/stratos/billing</module>
+		<module>../../../features/stratos/status-monitor</module-->
+		<!--module>../../../features/stratos/usage/org.wso2.carbon.stratos.usage.server.feature/2.2.0</module>
+		<module>../../../features/stratos/usage/org.wso2.carbon.stratos.usage.ui.feature/2.2.0</module>
+		<module>../../../features/stratos/usage/org.wso2.carbon.stratos.usage.feature/2.2.0</module>
+		<module>../../../features/stratos/throttling/org.wso2.carbon.stratos.throttling.manager.feature/2.2.0</module-->
+
+		<!-- reporting features -->
+		<!--module>../../../features/reporting/org.wso2.carbon.reporting.template.server.feature/4.2.0</module>
+		<module>../../../features/reporting/org.wso2.carbon.reporting.feature/4.2.0</module>
+		<module>../../../features/reporting/org.wso2.carbon.reporting.template.ui.feature/4.2.0</module-->
+
+		<!-- transport-mgt features -->
+		<!--module>../../../features/transport-mgt/org.wso2.carbon.transport.vfs.feature/4.2.0</module>
+		<module>../../../features/transport-mgt/org.wso2.carbon.transport.fix.feature/4.2.0</module>
+		<module>../../../features/transport-mgt/org.wso2.carbon.transport.tcp.feature/4.2.0</module>
+		<module>../../../features/transport-mgt/org.wso2.carbon.transport.udp.feature/4.2.0</module-->
+
+		<!-- ws-discovery features -->
+		<!--module>../../../features/ws-discovery/org.wso2.carbon.discovery.client.feature/4.2.0</module>
+		<module>../../../features/ws-discovery/org.wso2.carbon.discovery.mediation.ext.feature/4.2.0</module>
+		<module>../../../features/ws-discovery/org.wso2.carbon.discovery.ui.feature/4.2.0</module>
+		<module>../../../features/ws-discovery/org.wso2.carbon.discovery.feature/4.2.0</module-->
+
+		<!-- authenticators features -->
+		 <!--module>../../../features/authenticators/webseal-authenticator</module-->
+
+		<!-- cassandra-jdbc features -->
+		<!--module>../../../features/cassandra-jdbc/cassandra-jdbc-1.0.5</module>
+		<module>../../../features/cassandra-jdbc/cassandra-jdbc-1.1.1</module-->
+
+		<!-- application-deployers features -->
+		<!--module>../../../features/application-deployers/org.wso2.carbon.application.deployer.bpel.feature/4.2.0</module>
+		<module>../../../features/application-deployers/org.wso2.carbon.application.deployer.humantask.feature/4.2.0</module>
+		<module>../../../features/application-deployers/org.wso2.carbon.application.deployer.gadget.feature/4.2.0</module>
+		<module>../../../features/application-deployers/org.wso2.carbon.application.deployer.brs.feature/4.2.0</module>
+		<module>../../../features/application-deployers/org.wso2.carbon.application.deployer.bam.feature/4.2.0</module-->
+
+		<!--module>../../../features/messagebox</module>
+		<module>../../../features/qpid</module>
+		<module>../../../features/admin-mgt</module-->
+
+		<!--module>../../../features/data-sources</module-->
+        	<!--module>../../../features/mediation</module-->
+	        <!--module>../../../features/synapse-artifact-uploader</module>
+         	<module>../../../features/scheduled-tasks</module-->
+
+		 <!--module>../../../features/localentry</module>
+		 <module>../../../features/sequence-editor</module>
+		 <module>../../../features/proxyadmin</module>
+		 <module>../../../features/cluster-mgt</module>
+		 <module>../../../features/dashboard</module>
+		 <module>../../../features/priority-mediation</module>
+		 <module>../../../features/multiple-instance</module-->
+		 <!--module>../../../features/mediators</module-->
+
+		 <!--module>../../../features/humantask</module>
+		 <module>../../../features/bpel</module>
+		 <module>../../../features/url-mapper</module>
+		 <module>../../../features/transports/org.apache.axis2.transports.jms.feature/1.1.0-wso2v9</module-->
+		 <!--module>../../../features/unified-endpoint</module-->
+		 <!--module>../../../features/rss-manager</module>
+        	<module>../../../features/coordination</module-->
+		 <!--module>../../../features/andes</module-->
+		<!--module>../../../features/ues/1.0.1</module--> 
+
+    </modules>
+
+</project>
+

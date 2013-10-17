@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="retrieve" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="fieldList"/>
+    <parameter name="objectType"/>
+    <parameter name="objectIDS"/>
+    <sequence>
+        <property
+            expression="get-property('operation','salesforce.serviceUrl')" name="uri.var.salesforce.url"/>
+        <payloadFactory>
+            <format>
+                <soapenv:Envelope
+                    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:partner.soap.sforce.com">
+                    <soapenv:Header>
+                        <urn:SessionHeader>
+                            <urn:sessionId>$1</urn:sessionId>
+                        </urn:SessionHeader>
+                    </soapenv:Header>
+                    <soapenv:Body>
+                        <urn:retrieve>
+                            <urn:fieldList>$2</urn:fieldList>
+                            <urn:sObjectType>$3</urn:sObjectType>
+                        </urn:retrieve>
+                    </soapenv:Body>
+                </soapenv:Envelope>
+            </format>
+            <args>
+                <arg expression="get-property('operation','salesforce.sessionId')"/>
+                <arg expression="$func:fieldList"/>
+                <arg expression="$func:objectType"/>
+            </args>
+        </payloadFactory>
+        <class name="org.wso2.carbon.connector.salesforce.SetupRetriveSobjects"/>
+        <property name="SOAPAction" scope="transport" value="urn:partner.soap.sforce.com/Soap/retrieveRequest"/>
+        <call>
+            <endpoint>
+                <http method="POST" uri-template="{uri.var.salesforce.url}"/>
+            </endpoint>
+        </call>
+    </sequence>
+</template>

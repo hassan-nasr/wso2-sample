@@ -1,0 +1,155 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>org.wso2.carbon</groupId>
+        <artifactId>product-releases</artifactId>
+        <version>4.2.0-chunk03</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.wso2.carbon</groupId>
+    <artifactId>product-releases-components</artifactId>
+    <packaging>pom</packaging>
+    <name>WSO2 Carbon - Product releases - components - Aggregator Module</name>
+    <url>http://wso2.org</url>
+
+    <modules>                      
+
+ 	<!-- BAM components -->
+                <module>../../../components/bam2</module>
+                <module>../../../components/analytics</module>
+		<module>../../../components/data-bridge/org.wso2.carbon.databridge.datasink.cassandra/4.2.0</module>
+        <!-- End of BAM agent components -->
+        
+	<!-- SS components start-->
+                <module>../../../components/cassandra</module>
+                <module>../../../components/cassandra-explorer</module>
+                <module>../../../components/rss-manager</module>
+                <module>../../../components/hdfs</module>
+	<!-- SS components end-->
+
+ 	<!-- BPS components -->
+                <module>../../../components/business-processes/bpel</module>
+                <module>../../../components/business-processes/humantask/org.wso2.carbon.humantask/4.2.1</module>
+                <module>../../../components/business-processes/humantask/org.wso2.carbon.humantask.deployer/4.2.1</module>
+                <module>../../../components/business-processes/humantask/org.wso2.carbon.humantask.ui/4.2.1</module>
+                <module>../../../components/business-processes/humantask/org.wso2.carbon.humantask.cleanup.scheduler/4.2.1</module>
+                <module>../../../components/business-processes/humantask/org.wso2.carbon.humantask.coordination.module/4.2.1</module>
+                <module>../../../components/business-processes/attachment-mgt/org.wso2.carbon.attachment.mgt/4.2.1</module>
+	<!-- BPS components end-->
+
+	<!-- Application Mgt components -->
+		<module>../../../components/application-mgt/org.wso2.carbon.application.mgt.bpel/4.2.0</module>
+                <module>../../../components/application-mgt/org.wso2.carbon.application.mgt.humantask/4.2.0</module>
+                <module>../../../components/application-mgt/org.wso2.carbon.application.mgt.bpel.ui/4.2.0</module>
+                <module>../../../components/application-mgt/org.wso2.carbon.application.mgt.humantask.ui/4.2.0</module>
+	<!-- Application Mgt components -->
+
+	<!-- Application Deployer components -->
+		<module>../../../components/application-deployers/org.wso2.carbon.application.deployer.bpel/4.2.0</module>
+                <module>../../../components/application-deployers/org.wso2.carbon.application.deployer.humantask/4.2.0</module>
+	<!-- Application Deployer components -->
+
+	<!--Components not released with Chunk -02-->
+	<!-- Uncomment if the needed-->
+		
+		<!--module>../../../components/stratos/payment</module>
+		<module>../../../components/logging/org.wso2.carbon.logging.summarizer/4.2.0</module>
+		<module>../../../components/gadgets</module-->
+
+                <!--Removing eventing component since we are now using event component>
+                <module>../../../eventing</module-->
+                <!--<module>../../../health-monitor</module>-->
+                <!--module>appfac</module>
+                <module>../../../cg</module-->
+                <!-- module>gadget-ide</module -->
+                <!--<module>../../../components/registry/org.wso2.carbon.registry.tests.concurrent</module>-->
+		
+		<!-- Application mgt components -->
+		<!--module>../../../components/application-mgt/org.wso2.carbon.application.mgt.bpel/4.2.0</module>
+                <module>../../../components/application-mgt/org.wso2.carbon.application.mgt.humantask/4.2.0</module>
+                <module>../../../components/application-mgt/org.wso2.carbon.application.mgt.synapse.ui/4.2.0</module>
+                <module>../../../components/application-mgt/org.wso2.carbon.application.mgt.bpel.ui/4.2.0</module>
+                <module>../../../components/application-mgt/org.wso2.carbon.application.mgt.humantask.ui/4.2.0</module-->
+
+		<!-- Reporting components -->
+		<!--module>../../../components/reporting/org.wso2.carbon.reporting.template.ui/4.2.0</module>
+		<module>../../../components/reporting/org.wso2.carbon.reporting.template.core/4.2.0</module>
+		<module>../../../components/reporting/org.wso2.carbon.reporting.custom.ui/4.2.0</module-->
+
+		<!-- Stratos components -->
+		<!--module>../../../components/stratos/org.wso2.carbon.gapp.registration.ui/2.2.0</module>
+		<module>../../../components/stratos/billing</module-->
+		<!--module>../../../components/stratos/domain-validator</module>
+		<module>../../../components/stratos/tenant-activity</module>
+		<module>../../../components/stratos/status-monitor</module-->
+		<!--module>../../../components/stratos/org.wso2.carbon.cartridge.mgt.ui/2.2.0</module-->
+		<!--module>artifact-deployment-coordinator</module-->
+		<!--module>../../../components/stratos/throttling/org.wso2.carbon.throttling.manager/2.2.0</module>
+		<module>../../../components/stratos/throttling/org.wso2.carbon.throttling.ui/2.2.0</module>
+		<module>../../../components/stratos/usage/org.wso2.carbon.usage/2.2.0</module>
+		<module>../../../components/stratos/usage/org.wso2.carbon.usage.ui/2.2.0</module-->
+
+		<!--module>../../../components/transport-mgt/org.wso2.carbon.transport.vfs/4.2.0</module>
+		<module>../../../components/transport-mgt/org.wso2.carbon.transport.fix/4.2.0</module>
+		<module>../../../components/transport-mgt/org.wso2.carbon.transport.tcp/4.2.0</module>
+		<module>../../../components/transport-mgt/org.wso2.carbon.transport.udp/4.2.0</module-->
+
+		<!--module>../../../components/url-mapper/org.wso2.carbon.url.mapper.ui/4.2.0</module-->
+
+                <!--module>../../../components/ws-discovery/org.wso2.carbon.discovery.mediation.ext/4.2.0</module>
+                <module>../../../components/ws-discovery/org.wso2.carbon.discovery.module/4.2.0</module-->
+
+		<!--module>../../../components/authenticators/webseal-authenticator</module-->
+
+		<!--module>../../../components/event/org.wso2.carbon.event.sink/4.2.0</module-->
+
+                <!--module>../../../components/application-deployers/org.wso2.carbon.application.deployer.bpel/4.2.0</module>
+                <module>../../../components/application-deployers/org.wso2.carbon.application.deployer.gadget/4.2.0</module>
+                <module>../../../components/application-deployers/org.wso2.carbon.application.deployer.brs/4.2.0</module>
+                <module>../../../components/application-deployers/org.wso2.carbon.application.deployer.humantask/4.2.0</module>
+                <module>../../../components/application-deployers/org.wso2.carbon.application.deployer.bam/4.2.0</module-->
+
+		<!--module>../../../components/mediators/target-mediator</module>
+		<module>../../../components/mediators/class</module>
+		<module>../../../components/mediators/command</module>
+		<module>../../../components/mediators/fastXSLT</module>
+		<module>../../../components/mediators/event</module-->
+
+		<!--module>../../../components/business-processes/bpel</module-->
+                <!--module>../../../components/messagebox</module-->
+                <!--module>../../../components/qpid</module-->
+
+                <!--module>../../../components/cluster-mgt</module>
+                <module>../../../components/dashboard</module>
+                <module>../../../components/data-sources</module>
+                <module>../../../components/doc-request-processor</module-->
+
+		<!--module>../../../components/mediation/message-store</module>
+		<module>../../../components/mediation/message-processor</module>
+		<module>../../../components/mediators</module-->
+
+                <!--module>../../../components/rule</module>
+                <module>../../../components/scheduled-tasks</module>
+                <module>../../../components/schema-generator</module-->
+                <!--module>../../../components/synapse-artifact-uploader</module-->
+
+                <!--module>../../../components/priority-mediation</module>
+                <module>../../../components/multiple-instance</module>
+                <module>../../../components/transports</module-->
+                <!--module>../../../components/rss-manager</module>
+                <module>../../../components/coordination</module-->
+
+                <!--module>../../../components/andes</module-->
+
+                <!--module>../../../components/cassandra-explorer</module>
+                <module>../../../components/hdfs</module>
+                <module>../../../components/mapred</module-->
+
+		<!--module>../../../components/sso-common/1.0.1</module>
+		<module>../../../components/ues-admin/1.0.1</module-->
+    </modules>
+</project>

@@ -1,0 +1,61 @@
+<div class="container content-starter">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Search Activities</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container content-section-wrapper">
+<div class="row">
+    <form  class="form-horizontal" id="queryForm">
+    <div class="col-lg-12 content-section">
+        <label for="query">Query</label>
+
+        <textarea rows="4" cols="50" name="query" id="query" class="required input-xxlarge" style="color:#003399"></textarea>
+
+        <div class="vertical-spacer">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+        <br />
+        <div id="generalError" class="error" style="color:#FF0000;display: none"></div>
+    </div>
+</form>
+</div>
+</div>
+
+
+
+
+<script>
+$().ready(function () {
+    // validate the comment form when it is submitted
+    $("#queryForm").validate(
+            {submitHandler:function(){
+
+                validateQuery($('#query').val());
+
+                return true;
+            }}
+    );
+});
+function validateQuery(var1)
+{
+    $.ajax({
+        type: 'POST',
+        url: 'query_validation.jag',
+        data: {query: var1},
+        success: function(data) {
+            if(data=='true')
+            {
+                location.href='activities.jag';
+            }
+            else
+            {
+                $('#generalError').html('* Query Validation Failed. Please check the query syntax and make sure all the search properties have been indexed.').show();
+                return false;
+            }
+        }
+    });
+};
+</script>

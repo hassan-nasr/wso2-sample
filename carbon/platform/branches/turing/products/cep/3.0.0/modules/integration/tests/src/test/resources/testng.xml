@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="cep-features-test-suite">
+    <parameter name="useDefaultListeners" value="false"/>
+
+
+    <test name="cep-tests" preserve-order="true" parallel="false">
+        <!--<packages>-->
+        <!--<package name="org.wso2.carbon.integration.test.*"/>-->
+        <!--</packages>-->
+
+        <classes>
+            <class name="org.wso2.carbon.integration.test.processflow.LocalProcessFlowCreatingTestCase"/>
+            <class name="org.wso2.carbon.integration.test.processflow.EventFlowTestCase"/>
+        </classes>
+
+    </test>
+
+</suite>
